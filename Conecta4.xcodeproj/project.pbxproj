@@ -9,25 +9,52 @@
 /* Begin PBXBuildFile section */
 		3536EAFC278543C6006AAD2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536EAFB278543C6006AAD2D /* AppDelegate.swift */; };
 		3536EAFE278543C6006AAD2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536EAFD278543C6006AAD2D /* SceneDelegate.swift */; };
-		3536EB00278543C6006AAD2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536EAFF278543C6006AAD2D /* ViewController.swift */; };
+		3536EB00278543C6006AAD2D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536EAFF278543C6006AAD2D /* GameViewController.swift */; };
 		3536EB03278543C6006AAD2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3536EB01278543C6006AAD2D /* Main.storyboard */; };
 		3536EB05278543C9006AAD2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3536EB04278543C9006AAD2D /* Assets.xcassets */; };
 		3536EB08278543C9006AAD2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3536EB06278543C9006AAD2D /* LaunchScreen.storyboard */; };
+		3553428E2785E397003E29F7 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553428D2785E397003E29F7 /* BoardTests.swift */; };
+		3553429027869AFF003E29F7 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3553428F27869AFF003E29F7 /* GameTests.swift */; };
+		355342922786AFB0003E29F7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355342912786AFB0003E29F7 /* Game.swift */; };
+		35A2710C2785480D008388C1 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2710B2785480D008388C1 /* Board.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		355342882785E369003E29F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3536EAF0278543C6006AAD2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3536EAF7278543C6006AAD2D;
+			remoteInfo = Conecta4;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3536EAF8278543C6006AAD2D /* Conecta4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conecta4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3536EAFB278543C6006AAD2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3536EAFD278543C6006AAD2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3536EAFF278543C6006AAD2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3536EAFF278543C6006AAD2D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		3536EB02278543C6006AAD2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3536EB04278543C9006AAD2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3536EB07278543C9006AAD2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3536EB09278543C9006AAD2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		355342832785E369003E29F7 /* Conecta4Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Conecta4Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		355342872785E369003E29F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3553428D2785E397003E29F7 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
+		3553428F27869AFF003E29F7 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
+		355342912786AFB0003E29F7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		35A2710B2785480D008388C1 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3536EAF5278543C6006AAD2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		355342802785E369003E29F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				3536EAFA278543C6006AAD2D /* Conecta4 */,
+				355342842785E369003E29F7 /* Conecta4Tests */,
 				3536EAF9278543C6006AAD2D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				3536EAF8278543C6006AAD2D /* Conecta4.app */,
+				355342832785E369003E29F7 /* Conecta4Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +85,43 @@
 		3536EAFA278543C6006AAD2D /* Conecta4 */ = {
 			isa = PBXGroup;
 			children = (
+				35A2710A278547FB008388C1 /* Models */,
+				35A27109278547EC008388C1 /* View */,
 				3536EAFB278543C6006AAD2D /* AppDelegate.swift */,
 				3536EAFD278543C6006AAD2D /* SceneDelegate.swift */,
-				3536EAFF278543C6006AAD2D /* ViewController.swift */,
-				3536EB01278543C6006AAD2D /* Main.storyboard */,
 				3536EB04278543C9006AAD2D /* Assets.xcassets */,
 				3536EB06278543C9006AAD2D /* LaunchScreen.storyboard */,
 				3536EB09278543C9006AAD2D /* Info.plist */,
 			);
 			path = Conecta4;
+			sourceTree = "<group>";
+		};
+		355342842785E369003E29F7 /* Conecta4Tests */ = {
+			isa = PBXGroup;
+			children = (
+				355342872785E369003E29F7 /* Info.plist */,
+				3553428D2785E397003E29F7 /* BoardTests.swift */,
+				3553428F27869AFF003E29F7 /* GameTests.swift */,
+			);
+			path = Conecta4Tests;
+			sourceTree = "<group>";
+		};
+		35A27109278547EC008388C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3536EAFF278543C6006AAD2D /* GameViewController.swift */,
+				3536EB01278543C6006AAD2D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		35A2710A278547FB008388C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				35A2710B2785480D008388C1 /* Board.swift */,
+				355342912786AFB0003E29F7 /* Game.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +144,24 @@
 			productReference = 3536EAF8278543C6006AAD2D /* Conecta4.app */;
 			productType = "com.apple.product-type.application";
 		};
+		355342822785E369003E29F7 /* Conecta4Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3553428C2785E369003E29F7 /* Build configuration list for PBXNativeTarget "Conecta4Tests" */;
+			buildPhases = (
+				3553427F2785E369003E29F7 /* Sources */,
+				355342802785E369003E29F7 /* Frameworks */,
+				355342812785E369003E29F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				355342892785E369003E29F7 /* PBXTargetDependency */,
+			);
+			name = Conecta4Tests;
+			productName = Conecta4Tests;
+			productReference = 355342832785E369003E29F7 /* Conecta4Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -98,6 +173,10 @@
 				TargetAttributes = {
 					3536EAF7278543C6006AAD2D = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					355342822785E369003E29F7 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 3536EAF7278543C6006AAD2D;
 					};
 				};
 			};
@@ -115,6 +194,7 @@
 			projectRoot = "";
 			targets = (
 				3536EAF7278543C6006AAD2D /* Conecta4 */,
+				355342822785E369003E29F7 /* Conecta4Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +210,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		355342812785E369003E29F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,13 +224,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3536EB00278543C6006AAD2D /* ViewController.swift in Sources */,
+				3536EB00278543C6006AAD2D /* GameViewController.swift in Sources */,
+				355342922786AFB0003E29F7 /* Game.swift in Sources */,
 				3536EAFC278543C6006AAD2D /* AppDelegate.swift in Sources */,
+				35A2710C2785480D008388C1 /* Board.swift in Sources */,
 				3536EAFE278543C6006AAD2D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3553427F2785E369003E29F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3553428E2785E397003E29F7 /* BoardTests.swift in Sources */,
+				3553429027869AFF003E29F7 /* GameTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		355342892785E369003E29F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3536EAF7278543C6006AAD2D /* Conecta4 */;
+			targetProxy = 355342882785E369003E29F7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3536EB01278543C6006AAD2D /* Main.storyboard */ = {
@@ -319,6 +425,46 @@
 			};
 			name = Release;
 		};
+		3553428A2785E369003E29F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V22P2982D3;
+				INFOPLIST_FILE = Conecta4Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pro.christianleon.Conecta4Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Conecta4.app/Conecta4";
+			};
+			name = Debug;
+		};
+		3553428B2785E369003E29F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V22P2982D3;
+				INFOPLIST_FILE = Conecta4Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pro.christianleon.Conecta4Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Conecta4.app/Conecta4";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -336,6 +482,15 @@
 			buildConfigurations = (
 				3536EB0D278543C9006AAD2D /* Debug */,
 				3536EB0E278543C9006AAD2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3553428C2785E369003E29F7 /* Build configuration list for PBXNativeTarget "Conecta4Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3553428A2785E369003E29F7 /* Debug */,
+				3553428B2785E369003E29F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
