@@ -17,14 +17,7 @@ class BoardTests: XCTestCase {
     
     func testCreateBoards() {
         let board67 = Board(rows: 6, columns: 7)
-        let result67: [[Disc]] = [
-            [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
-            [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
-            [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
-            [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
-            [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
-            [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
-        ]
+        let result67: [[Disc]] = getEmptyGrid()
         
         let board38 = Board(rows: 3, columns: 8)
         let result38: [[Disc]] = [
@@ -83,7 +76,184 @@ class BoardTests: XCTestCase {
         
         board.clearBoard()
         
-        let result: [[Disc]] = [
+        let result: [[Disc]] = getEmptyGrid()
+        
+        XCTAssertEqual(board.grid, result)
+    }
+    // Given a new board, when there are 4 discs in a row, then there are 4 connected
+    func testIfConnect4InARow() {
+        board.setDisc(forColumn: 0, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 1, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 2, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .red)
+        XCTAssertTrue(board.verifyIfConnect4())
+        
+        board.clearBoard()
+        board.setDisc(forColumn: 0, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 1, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 2, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 4, forDisc: .red)
+        XCTAssertTrue(board.verifyIfConnect4())
+        
+        board.clearBoard()
+        board.setDisc(forColumn: 0, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 1, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 2, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 4, forDisc: .yellow)
+        XCTAssertTrue(board.verifyIfConnect4())
+        
+        board.clearBoard()
+        board.setDisc(forColumn: 0, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 1, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 2, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 4, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 5, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 6, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 0, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 6, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 1, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 5, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 2, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 4, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .yellow)
+        XCTAssertTrue(board.verifyIfConnect4())
+    }
+    
+    // Given a new board, when there are 4 discs in a column, then there are 4 connected
+    func testIfConnect4InAColumn() {
+        let randomNumber = Int.random(in: 0...6)
+        board.setDisc(forColumn: randomNumber, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: randomNumber, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: randomNumber, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: randomNumber, forDisc: .yellow)
+        XCTAssertTrue(board.verifyIfConnect4())
+        
+        board.clearBoard()
+        board.setDisc(forColumn: randomNumber, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: randomNumber, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: randomNumber, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: randomNumber, forDisc: .red)
+        XCTAssertTrue(board.verifyIfConnect4())
+        
+        board.clearBoard()
+        board.setDisc(forColumn: 0, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 1, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 0, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 1, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 0, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 1, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 0, forDisc: .yellow)
+        XCTAssertTrue(board.verifyIfConnect4())
+    }
+    
+    // Given a new board, when there are 4 discs in a top diagonal (left-top to bottom-right), then there are 4 connected and grid should get emptied again
+    func testIfConnect4InATopDiagonal() {
+        board.setDisc(forColumn: 6, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 5, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 5, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 4, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 4, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 4, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 0, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .red)
+        XCTAssertTrue(board.verifyIfConnect4())
+        //        0 0 0 0 0 0 0
+        //        0 0 0 0 0 0 0
+        //        0 0 0 r 0 0 0
+        //        0 0 0 y r 0 0
+        //        0 0 0 r y r 0
+        //        y 0 0 r y y r
+    }
+    
+    
+    // Given a new board, when there are 4 discs in a bottom diagonal (left-bottom to top-right), then there are 4 connected and grid should get emptied again
+    func testIfConnect4InABottomDiagonal() {
+        board.setDisc(forColumn: 0, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 1, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 1, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 2, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 2, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 2, forDisc: .red)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 4, forDisc: .yellow)
+        XCTAssertFalse(board.verifyIfConnect4())
+        board.setDisc(forColumn: 3, forDisc: .red)
+        XCTAssertTrue(board.verifyIfConnect4())
+        //        0 0 0 0 0 0 0
+        //        0 0 0 0 0 0 0
+        //        0 0 0 r 0 0 0
+        //        0 0 r y 0 0 0
+        //        0 r y r 0 0 0
+        //        r y y r y 0 0
+    }
+    
+    
+    
+    func getEmptyGrid() -> [[Disc]] {
+        [
             [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
             [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
             [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
@@ -91,8 +261,5 @@ class BoardTests: XCTestCase {
             [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
             [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
         ]
-        
-        XCTAssertEqual(board.grid, result)
     }
-    
 }
