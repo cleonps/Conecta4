@@ -15,6 +15,15 @@ enum Disc: Int {
     case red = 1
     case yellow = -1
     case empty = 0
+    
+    static func random<T: RandomNumberGenerator>(using generator: inout T) -> Disc {
+        [Disc.red, Disc.yellow].randomElement(using: &generator)!
+    }
+
+    static func random() -> Disc {
+        var t = SystemRandomNumberGenerator()
+        return Disc.random(using: &t)
+    }
 }
 
 typealias Position = (row: Int, column: Int)
@@ -46,6 +55,10 @@ class Board {
     
     func verifyIfConnect4() -> Bool {
         areFourInARow() || areFourInAColumn() || areFourInADiagonal()
+    }
+    
+    func verifyIfBoardIsFull() -> Bool {
+        grid.allSatisfy { $0.allSatisfy { abs($0.rawValue) == 1 } }
     }
     
     func clearBoard() {

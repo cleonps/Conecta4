@@ -250,7 +250,24 @@ class BoardTests: XCTestCase {
         //        r y y r y 0 0
     }
     
-    
+    func testIfBoardIsFull() {
+        var fullBoard = getFullRandomGrid()
+        fullBoard.reversed().forEach {
+            for (index, element) in $0.enumerated() {
+                board.setDisc(forColumn: index, forDisc: element)
+            }
+        }
+        XCTAssert(board.verifyIfBoardIsFull())
+        
+        board.clearBoard()
+        fullBoard = getFullRandomGrid()
+        fullBoard.reversed().forEach {
+            for (index, element) in $0.enumerated() {
+                board.setDisc(forColumn: index, forDisc: element)
+            }
+        }
+        XCTAssert(board.verifyIfBoardIsFull())
+    }
     
     func getEmptyGrid() -> [[Disc]] {
         [
@@ -261,5 +278,9 @@ class BoardTests: XCTestCase {
             [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
             [.empty,.empty,.empty,.empty,.empty,.empty,.empty],
         ]
+    }
+    
+    func getFullRandomGrid() -> [[Disc]] {
+        [[Disc]](repeating: [Disc](repeating: Disc.random(), count: 7), count: 6)
     }
 }

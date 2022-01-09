@@ -48,6 +48,33 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.board.grid, Board(rows:6, columns: 7).grid)
     }
     
+    // Given a finished game, when a player wins, then the board should be blocked and a flag to show the winner must be true
+    func testIsShowingWinner() {
+        game.setDiscOnBoard(atColumn: 0)
+        game.setDiscOnBoard(atColumn: 0)
+        game.setDiscOnBoard(atColumn: 1)
+        game.setDiscOnBoard(atColumn: 1)
+        game.setDiscOnBoard(atColumn: 2)
+        game.setDiscOnBoard(atColumn: 2)
+        game.setDiscOnBoard(atColumn: 3)
+        XCTAssertTrue(game.isShowingWinner)
+        
+        game.setDiscOnBoard(atColumn: 0)
+        XCTAssertEqual(game.board.grid[4][0], .yellow)
+        XCTAssertEqual(game.board.grid[3][0], .empty)
+        XCTAssertTrue(game.isShowingWinner)
+        
+        game.setDiscOnBoard(atColumn: 0)
+        XCTAssertEqual(game.board.grid[4][0], .yellow)
+        XCTAssertEqual(game.board.grid[3][0], .empty)
+        XCTAssertTrue(game.isShowingWinner)
+        
+        game.setDiscOnBoard(atColumn: 0)
+        XCTAssertEqual(game.board.grid[4][0], .yellow)
+        XCTAssertEqual(game.board.grid[3][0], .empty)
+        XCTAssertTrue(game.isShowingWinner)
+    }
+    
     func testScore() {
         var currentScore: Int = 0
         // Given a new game, when it starts, then the score should start at 0
@@ -65,6 +92,7 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.score, currentScore)
         
         currentScore += 1
+        game.setupGame()
         game.setDiscOnBoard(atColumn: 0)
         game.setDiscOnBoard(atColumn: 1)
         game.setDiscOnBoard(atColumn: 0)
@@ -75,6 +103,7 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.score, currentScore)
         
         currentScore += 1
+        game.setupGame()
         game.setDiscOnBoard(atColumn: 0)
         game.setDiscOnBoard(atColumn: 0)
         game.setDiscOnBoard(atColumn: 1)
@@ -90,6 +119,40 @@ class GameTests: XCTestCase {
         
         drawHelper()
         XCTAssertEqual(game.score, currentScore)
+    }
+    
+    func testBlockedBoardForFinishedGame() {
+        // Given a finished game, when a player wins, then the board should be blocked
+        var currentBoardGrid = game.board.grid
+        game.setDiscOnBoard(atColumn: 0)
+        XCTAssertNotEqual(currentBoardGrid, game.board.grid)
+        currentBoardGrid = game.board.grid
+        game.setDiscOnBoard(atColumn: 0)
+        XCTAssertNotEqual(currentBoardGrid, game.board.grid)
+        currentBoardGrid = game.board.grid
+        game.setDiscOnBoard(atColumn: 1)
+        XCTAssertNotEqual(currentBoardGrid, game.board.grid)
+        currentBoardGrid = game.board.grid
+        game.setDiscOnBoard(atColumn: 1)
+        XCTAssertNotEqual(currentBoardGrid, game.board.grid)
+        currentBoardGrid = game.board.grid
+        game.setDiscOnBoard(atColumn: 2)
+        XCTAssertNotEqual(currentBoardGrid, game.board.grid)
+        currentBoardGrid = game.board.grid
+        game.setDiscOnBoard(atColumn: 2)
+        XCTAssertNotEqual(currentBoardGrid, game.board.grid)
+        currentBoardGrid = game.board.grid
+        game.setDiscOnBoard(atColumn: 3)
+        XCTAssertNotEqual(currentBoardGrid, game.board.grid)
+        // Game finished
+        currentBoardGrid = game.board.grid
+        game.setDiscOnBoard(atColumn: 1)
+        XCTAssertEqual(game.board.grid, currentBoardGrid)
+        game.setDiscOnBoard(atColumn: 3)
+        XCTAssertEqual(game.board.grid, currentBoardGrid)
+        game.setDiscOnBoard(atColumn: 5)
+        XCTAssertEqual(game.board.grid, currentBoardGrid)
+        
     }
     
     func drawHelper() {
