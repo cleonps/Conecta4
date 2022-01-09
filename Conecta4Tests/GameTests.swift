@@ -76,12 +76,12 @@ class GameTests: XCTestCase {
     }
     
     func testScore() {
-        var currentScore: Int = 0
+        var currentScore: Score = Score(red: 0, yellow: 0)
         // Given a new game, when it starts, then the score should start at 0
-        XCTAssertEqual(game.score, 0)
+        XCTAssertEqual(game.score, currentScore)
         
         // Given a finished game, when a player wins, then the score should increase
-        currentScore += 1
+        currentScore.red += 1
         game.setDiscOnBoard(atColumn: 0)
         game.setDiscOnBoard(atColumn: 0)
         game.setDiscOnBoard(atColumn: 1)
@@ -91,7 +91,7 @@ class GameTests: XCTestCase {
         game.setDiscOnBoard(atColumn: 3)
         XCTAssertEqual(game.score, currentScore)
         
-        currentScore += 1
+        currentScore.red += 1
         game.setupGame()
         game.setDiscOnBoard(atColumn: 0)
         game.setDiscOnBoard(atColumn: 1)
@@ -102,7 +102,7 @@ class GameTests: XCTestCase {
         game.setDiscOnBoard(atColumn: 0)
         XCTAssertEqual(game.score, currentScore)
         
-        currentScore += 1
+        currentScore.yellow += 1
         game.setupGame()
         game.setDiscOnBoard(atColumn: 0)
         game.setDiscOnBoard(atColumn: 0)
@@ -110,13 +110,18 @@ class GameTests: XCTestCase {
         game.setDiscOnBoard(atColumn: 1)
         game.setDiscOnBoard(atColumn: 2)
         game.setDiscOnBoard(atColumn: 2)
+        game.setDiscOnBoard(atColumn: 5)
+        game.setDiscOnBoard(atColumn: 3)
+        game.setDiscOnBoard(atColumn: 5)
         game.setDiscOnBoard(atColumn: 3)
         XCTAssertEqual(game.score, currentScore)
         
         // Given a finished game, when the game is a draw, then the score should not change
+        game.setupGame()
         drawHelper()
         XCTAssertEqual(game.score, currentScore)
         
+        game.setupGame()
         drawHelper()
         XCTAssertEqual(game.score, currentScore)
     }

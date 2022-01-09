@@ -25,12 +25,29 @@ enum Turn {
     }
 }
 
+struct Score: Equatable {
+    var red: Int
+    var yellow: Int
+    
+    static func ==(lhs: Score, rhs: Score) -> Bool {
+        return lhs.red == rhs.red && lhs.yellow == rhs.yellow
+    }
+}
+
 class Game {
     var board: Board
     var turn: Turn = .red
-    var score: Int = 0
+    var score: Score = Score(red: 0, yellow: 0)
     var isShowingWinner = false {
         didSet {
+            if board.verifyIfConnect4() {
+                switch turn {
+                case .red:
+                    score.red += 1
+                case .yellow:
+                    score.yellow += 1
+                }
+            }
             currentWinner = isShowingWinner ? sendWinner() : ""
         }
     }
@@ -50,8 +67,13 @@ class Game {
     
     func setDiscOnBoard(atColumn column: Int) {
         guard !isShowingWinner else { return }
-        board.setDisc(forColumn: column, forDisc: turn.getDisc()) ? turn.toggle() : nil
+        let discWasSet = board.setDisc(forColumn: column, forDisc: turn.getDisc())
         isShowingWinner = board.verifyIfConnect4() || board.verifyIfBoardIsFull()
+        changeTurn(discWasSet: discWasSet)
+    }
+    
+    func changeTurn(discWasSet: Bool) {
+        discWasSet && !isShowingWinner ? turn.toggle() : nil
     }
     
     func sendWinner() -> String {
