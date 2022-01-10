@@ -59,19 +59,33 @@ class GameTests: XCTestCase {
         game.setDiscOnBoard(atColumn: 3)
         XCTAssertTrue(game.isShowingWinner)
         
+        // Same game
         game.setDiscOnBoard(atColumn: 0)
         XCTAssertEqual(game.board.grid[4][0], .yellow)
         XCTAssertEqual(game.board.grid[3][0], .empty)
         XCTAssertTrue(game.isShowingWinner)
         
+        // Same game
         game.setDiscOnBoard(atColumn: 0)
         XCTAssertEqual(game.board.grid[4][0], .yellow)
         XCTAssertEqual(game.board.grid[3][0], .empty)
         XCTAssertTrue(game.isShowingWinner)
         
+        // Same game
         game.setDiscOnBoard(atColumn: 0)
         XCTAssertEqual(game.board.grid[4][0], .yellow)
         XCTAssertEqual(game.board.grid[3][0], .empty)
+        XCTAssertTrue(game.isShowingWinner)
+        
+        // New game
+        game.setupGame()
+        game.setDiscOnBoard(atColumn: 6)
+        game.setDiscOnBoard(atColumn: 5)
+        game.setDiscOnBoard(atColumn: 6)
+        game.setDiscOnBoard(atColumn: 5)
+        game.setDiscOnBoard(atColumn: 6)
+        game.setDiscOnBoard(atColumn: 5)
+        game.setDiscOnBoard(atColumn: 6)
         XCTAssertTrue(game.isShowingWinner)
     }
     

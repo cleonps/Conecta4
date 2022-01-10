@@ -7,10 +7,6 @@
 
 import Foundation
 
-//enum BoardError: String, Error {
-//    case columnFull = "Couldn't set this for current column"
-//}
-
 enum Disc: Int {
     case red = 1
     case yellow = -1
