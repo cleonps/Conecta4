@@ -9,6 +9,9 @@ import UIKit
 
 class GameViewController: UIViewController {
     @IBOutlet private var columnStackView: [UIStackView]!
+    @IBOutlet private var discImageView: [UIImageView]!
+    @IBOutlet private var redPlayerScoreLabel: UILabel!
+    @IBOutlet private var yellowPlayerScoreLabel: UILabel!
     
     let game = Game(board: Board(rows: 6, columns: 7))
     
@@ -20,25 +23,46 @@ class GameViewController: UIViewController {
                                              action: #selector(rowSelected(_:)))
             $0.addGestureRecognizer(tap)
         }
+        updateScore()
+    }
+    
+    @IBAction func selectRestartButton(_ sender: UIButton) {
+        restartGame()
     }
     
     @objc func rowSelected(_ sender: UITapGestureRecognizer) {
         guard let column = sender.view?.tag else { return }
-        game.setDiscOnBoard(atColumn: column)
+        let color: UIColor = game.turn == .yellow ? .yellow : .red
+        if let position = game.setDiscOnBoard(atColumn: column) {
+            let index = 7 * (position.row) + (position.column)
+            discImageView[index].tintColor = color
+        }
         if game.isShowingWinner {
+            updateScore()
             showWinner()
         }
     }
     
+    func updateScore() {
+        redPlayerScoreLabel.text = "Red Player:\n\(game.score.red)"
+        yellowPlayerScoreLabel.text = "Yellow Player:\n\(game.score.yellow)"
+    }
+    
+    func restartGame() {
+        game.setupGame()
+        discImageView.forEach { $0.tintColor = .systemBackground }
+    }
+    
     func showWinner() {
         let winner = game.currentWinner
-        let alert = UIAlertController(title: "Partida terminada", message: winner, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Jugar de nuevo", style: .default) { [weak self] _ in
+        let alert = UIAlertController(title: "Game Over", message: winner, preferredStyle: .alert)
+        let playAction = UIAlertAction(title: "Play again!", style: .default) { [weak self] _ in
             guard let self = self else { return }
-            self.game.setupGame()
-            print("New game")
+            self.restartGame()
         }
-        alert.addAction(action)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(playAction)
+        alert.addAction(cancelAction)
         present(alert, animated: true)
     }
 }

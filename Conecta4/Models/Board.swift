@@ -36,17 +36,17 @@ class Board {
         clearGrid()
     }
     
-    @discardableResult func setDisc(forColumn column: Int, forDisc disc: Disc) -> Bool {
-        guard (0...columns-1).contains(column) else { return false }
+    @discardableResult func setDisc(forColumn column: Int, forDisc disc: Disc) -> Position? {
+        guard (0...columns-1).contains(column) else { return nil }
         for row in (0...rows-1).reversed() {
             let position = Position(row: row, column: column)
             if isPositionEmpty(at: position) {
                 setDisc(at: position, forDisc: disc)
                 lastPosition = position
-                return true
+                return position
             }
         }
-        return false
+        return nil
     }
     
     func verifyIfConnect4() -> Bool {

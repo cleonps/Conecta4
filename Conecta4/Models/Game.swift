@@ -65,11 +65,16 @@ class Game {
         currentWinner = ""
     }
     
-    func setDiscOnBoard(atColumn column: Int) {
-        guard !isShowingWinner else { return }
-        let discWasSet = board.setDisc(forColumn: column, forDisc: turn.getDisc())
+    @discardableResult func setDiscOnBoard(atColumn column: Int) -> Position? {
+        guard !isShowingWinner else { return nil }
+        var discWasSet = false
+        let result: Position? = board.setDisc(forColumn: column, forDisc: turn.getDisc())
+        if let _ = result {
+            discWasSet = true
+        }
         isShowingWinner = board.verifyIfConnect4() || board.verifyIfBoardIsFull()
         changeTurn(discWasSet: discWasSet)
+        return result
     }
     
     func changeTurn(discWasSet: Bool) {
