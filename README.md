@@ -1,4 +1,4 @@
-# Conect 4
+# Connect 4
 
 This repo was created to solve MoureDev monthly challenges. Learn more at: [Monthly App Challenge 2022](https://github.com/mouredev/Monthly-App-Challenge-2022)
 
@@ -19,6 +19,6 @@ This repo was created to solve MoureDev monthly challenges. Learn more at: [Mont
 - Supports Dark Mode
 - No third party libraries
 
-![Conect4](https://raw.githubusercontent.com/cleonps/Conecta4/main/Conect4.png)
-![Conect4 Dark Mode](https://raw.githubusercontent.com/cleonps/Conecta4/main/Conect4-DM.png)
+![Connect4](https://raw.githubusercontent.com/cleonps/Conecta4/main/Connect4.png)
+![Connect4 Dark Mode](https://raw.githubusercontent.com/cleonps/Conecta4/main/Connect4-DM.png)
 
