@@ -44,7 +44,7 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.turn, Turn.red)
         XCTAssertEqual(game.board.grid, Board(rows:6, columns: 7).grid)
         game.setupGame()
-        XCTAssertEqual(game.turn, Turn.red)
+        XCTAssertEqual(game.turn, Turn.yellow)
         XCTAssertEqual(game.board.grid, Board(rows:6, columns: 7).grid)
     }
     
@@ -105,7 +105,7 @@ class GameTests: XCTestCase {
         game.setDiscOnBoard(atColumn: 3)
         XCTAssertEqual(game.score, currentScore)
         
-        currentScore.red += 1
+        currentScore.yellow += 1
         game.setupGame()
         game.setDiscOnBoard(atColumn: 0)
         game.setDiscOnBoard(atColumn: 1)

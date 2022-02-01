@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="landscape" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -525,6 +526,16 @@
                                     <action selector="selectRestartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KKt-sc-uyb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7j-9K-toP">
+                                <rect key="frame" x="330" y="183" width="228" height="30"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="Clean Score"/>
+                                <connections>
+                                    <action selector="selectCleanButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZAe-nQ-MQm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -533,6 +544,8 @@
                             <constraint firstItem="UnT-m0-Gyl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ed3-5m-znq"/>
                             <constraint firstItem="FmY-vO-uey" firstAttribute="leading" secondItem="UnT-m0-Gyl" secondAttribute="trailing" constant="10" id="FQq-fs-Tz2"/>
                             <constraint firstItem="FmY-vO-uey" firstAttribute="top" secondItem="8gV-Hg-k2m" secondAttribute="bottom" constant="5" id="GIu-ah-qoh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C7j-9K-toP" secondAttribute="trailing" constant="10" id="QfI-tn-JLn"/>
+                            <constraint firstItem="C7j-9K-toP" firstAttribute="top" secondItem="1dp-wl-h7d" secondAttribute="bottom" constant="8" symbolic="YES" id="QjU-ns-eL0"/>
                             <constraint firstItem="1dp-wl-h7d" firstAttribute="leading" secondItem="UnT-m0-Gyl" secondAttribute="trailing" constant="10" id="Wwd-AO-Ate"/>
                             <constraint firstItem="1dp-wl-h7d" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XWb-Ts-dsL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1dp-wl-h7d" secondAttribute="trailing" constant="10" id="aas-oZ-rQN"/>
@@ -541,6 +554,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8gV-Hg-k2m" secondAttribute="trailing" constant="10" id="h52-rY-HhJ"/>
                             <constraint firstItem="UnT-m0-Gyl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jxh-yC-f3E"/>
                             <constraint firstItem="8gV-Hg-k2m" firstAttribute="leading" secondItem="UnT-m0-Gyl" secondAttribute="trailing" constant="10" id="twJ-j8-3H4"/>
+                            <constraint firstItem="C7j-9K-toP" firstAttribute="leading" secondItem="UnT-m0-Gyl" secondAttribute="trailing" constant="10" id="xw4-Nb-ygr"/>
                         </constraints>
                     </view>
                     <connections>

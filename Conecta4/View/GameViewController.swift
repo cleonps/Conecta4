@@ -27,6 +27,10 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func selectRestartButton(_ sender: UIButton) {
+        cleanScore()
+    }
+    
+    @IBAction func selectCleanButton(_ sender: UIButton) {
         restartGame()
     }
     
@@ -51,6 +55,12 @@ class GameViewController: UIViewController {
     func restartGame() {
         game.setupGame()
         discImageView.forEach { $0.tintColor = .systemBackground }
+    }
+    
+    func cleanScore() {
+        game.cleanScore()
+        updateScore()
+        restartGame()
     }
     
     func showWinner() {

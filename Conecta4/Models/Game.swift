@@ -52,6 +52,7 @@ class Game {
         }
     }
     var currentWinner = ""
+    private var lastGameTurn: Turn = .yellow
     
     init(board: Board) {
         self.board = board
@@ -60,7 +61,8 @@ class Game {
     
     func setupGame() {
         board.clearBoard()
-        turn = .red
+        turn = lastGameTurn == .red ? .yellow : .red
+        lastGameTurn.toggle()
         isShowingWinner = false
         currentWinner = ""
     }
@@ -77,7 +79,11 @@ class Game {
         return result
     }
     
-    func changeTurn(discWasSet: Bool) {
+    func cleanScore() {
+        score = Score(red: 0, yellow: 0)
+    }
+    
+    private func changeTurn(discWasSet: Bool) {
         discWasSet && !isShowingWinner ? turn.toggle() : nil
     }
     
