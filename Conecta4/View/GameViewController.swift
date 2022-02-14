@@ -27,11 +27,11 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func selectRestartButton(_ sender: UIButton) {
-        cleanScore()
+        restartGame()
     }
     
     @IBAction func selectCleanButton(_ sender: UIButton) {
-        restartGame()
+        cleanScore()
     }
     
     @objc func rowSelected(_ sender: UITapGestureRecognizer) {
@@ -60,7 +60,6 @@ class GameViewController: UIViewController {
     func cleanScore() {
         game.cleanScore()
         updateScore()
-        restartGame()
     }
     
     func showWinner() {
